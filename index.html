@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap + GSAP Demos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 50px;
+    }
+    h1 {
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: #212529;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 15px 0;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      color: #0d6efd;
+      text-decoration: none;
+    }
+    .arrow {
+      opacity: 0;
+      margin-left: 8px;
+      position: absolute;
+      right: -25px;
+      color: #0d6efd;
+      font-weight: bold;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bootstrap + GSAP Demo Projects</h1>
+    <ul>
+      <li>
+        <a href="Animate Bootstrap Modal/index.html">Animate Bootstrap Modal <span class="arrow">→</span></a>
+      </li>
+      <li>
+        <a href="Animate Bootstrap Navbar/index.html">Animate Bootstrap Navbar <span class="arrow">→</span></a>
+      </li>
+      <li>
+        <a href="Animate Bootstrap Cards on Scroll/index.html">Animate Bootstrap Cards on Scroll <span class="arrow">→</span></a>
+      </li>
+      <li>
+        <a href="Bootstrap and GSAP Landing Page/index.html">Bootstrap + GSAP Landing Page <span class="arrow">→</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    document.querySelectorAll("li").forEach(item => {
+      const arrow = item.querySelector(".arrow");
+      const link = item.querySelector("a");
+
+      item.addEventListener("mouseenter", () => {
+        gsap.to(link, { x: 10, duration: 0.3, ease: "power2.out" });
+        gsap.to(arrow, { opacity: 1, x: 10, duration: 0.3, ease: "power2.out" });
+      });
+
+      item.addEventListener("mouseleave", () => {
+        gsap.to(link, { x: 0, duration: 0.3, ease: "power2.inOut" });
+        gsap.to(arrow, { opacity: 0, x: 0, duration: 0.3, ease: "power2.inOut" });
+      });
+    });
+  </script>
+</body>
+</html>
